@@ -9,9 +9,9 @@ class UserController < ApplicationController
            @user = User.create(params)
            @user.save
            session[:user_id] = @user.id
-            redirect to '/lists/list'
+            erb  :'/lists/list'
         else
-            redirect to '/users/signup'
+            erb :'/users/signup'
          end
    end
 
@@ -19,7 +19,7 @@ class UserController < ApplicationController
       if !logged_in?
        erb :'/users/login'
       else
-        redirect '/lists/list'
+        erb :'/lists/list'
       end
     end
 
@@ -27,9 +27,9 @@ class UserController < ApplicationController
       @user = User.find_by(username: params[:username])
        if @user && @user.authenticate(params[:password])
            session[:user_id] = @user.id
-           redirect '/lists/list'
+           erb :'/lists/list'
            else
-              redirect '/users/signup'
+              erb :'/users/signup'
        end
     end
 
