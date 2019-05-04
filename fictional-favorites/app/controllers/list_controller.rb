@@ -1,11 +1,12 @@
 class ListController < ApplicationController
 
   get '/lists/list' do
-    @user = User.find(session[:user_id])
+    if @user = User.find(session[:user_id])
     erb :'/lists/list'
   else
     erb :'/index'
   end
+end
 
   get '/create_list' do
      erb :'/lists/create_list'
@@ -17,5 +18,5 @@ class ListController < ApplicationController
         @char.save
       erb :'/lists/list'
    end
-
  end
+end

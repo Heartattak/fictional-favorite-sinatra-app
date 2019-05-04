@@ -6,4 +6,5 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use UserController
+use ListController
 run ApplicationController
