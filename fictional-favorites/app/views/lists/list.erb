@@ -1,7 +1,18 @@
 <html>
   <body>
     <form action="/lists" method="post">
+      <p> ----------------------- </p>
+      <% Char.all.each do |char| %>
+      <ol>
+        <li>name: <%=char.name%> origin: <%=char.origin%></li>
+      </ol>
+      <% end %>
+    <p> --------------------------- </p>
+
       <h1> Don't have a list yet? <a href="create_list"> Make one! </a> </h1>
+      <h2> Edit List </h2>
+      <h3> Delete List </h3>
+      <h4> <a href="logout"> Log Out </a> </h4>
     </form>
   </body>
 

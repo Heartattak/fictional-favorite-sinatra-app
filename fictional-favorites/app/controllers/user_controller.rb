@@ -33,4 +33,9 @@ class UserController < ApplicationController
        end
     end
 
+    get '/logout' do
+      session.clear
+      erb :'/users/login'
+    end
+
 end
