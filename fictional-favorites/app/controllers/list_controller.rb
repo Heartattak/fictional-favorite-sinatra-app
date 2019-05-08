@@ -4,7 +4,7 @@ class ListController < ApplicationController
     if @user = User.find(session[:user_id])
     erb :'/lists/list'
   else
-    erb :'/index'
+    redirect to :index
   end
 end
 
@@ -13,11 +13,10 @@ end
    end
 
    post '/create_list' do
-      if params[:char][:name] != "" && params[:char][:origin] != ""
-        binding.pry
+      if params[:name] != "" && params[:origin] != ""
         @char = Char.create(params)
         @char.save
-      erb :'/lists/list'
+      redirect to '/create_list'
    end
  end
 end
