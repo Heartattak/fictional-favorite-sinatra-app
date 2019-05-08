@@ -8,7 +8,7 @@ class ListController < ApplicationController
   end
 end
 
-  get '/create_list' do
+  get '/lists/create_list' do
      erb :'/lists/create_list'
    end
 
@@ -16,7 +16,12 @@ end
       if params[:name] != "" && params[:origin] != ""
         @char = Char.create(params)
         @char.save
-      redirect to '/create_list'
+      redirect to '/lists/create_list'
    end
  end
-end
+
+ get '/lists/logout' do
+   session.clear
+   redirect to :'/login'
+ end
+ end
