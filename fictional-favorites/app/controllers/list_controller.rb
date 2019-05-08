@@ -14,6 +14,7 @@ end
 
    post '/create_list' do
       if params[:char][:name] != "" && params[:char][:origin] != ""
+        binding.pry
         @char = Char.create(params)
         @char.save
       erb :'/lists/list'
