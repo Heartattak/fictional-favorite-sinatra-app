@@ -13,8 +13,9 @@ end
    end
 
    post '/create_list' do
-      if params[:name] != "" && params[:origin] != ""
+      if params[:name] != "" && params[:origin] != "" && !!current_user
         @char = Char.create(params)
+        @char.user = current_user
         @char.save
       redirect to '/lists/create_list'
    end
