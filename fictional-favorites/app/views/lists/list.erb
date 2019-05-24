@@ -2,7 +2,7 @@
   <body>
     <form action="/list" method="post">
       <p> ----------------------- </p>
-      <% Char.all.each do |char| %>
+      <% @char.each do |char| %>
       <ol>
         <li>name: <%=char.name%> origin: <%=char.origin%></li>
       </ol>
