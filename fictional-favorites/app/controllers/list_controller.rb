@@ -21,6 +21,13 @@ end
    end
  end
 
+ get '/lists/edit_list' do
+   @char = Char.all
+   if @char = current_user.chars
+    erb :'/lists/edit_list'
+  end
+  end
+
  get '/lists/logout' do
    session.clear
    redirect to :'/login'
