@@ -28,6 +28,13 @@ end
   end
   end
 
+  get '/lists/delete_list' do
+    @char = Char.all
+    if @char = current_user.chars
+     erb :'/lists/delete_list'
+   end
+  end
+
  get '/lists/logout' do
    session.clear
    redirect to :'/login'
