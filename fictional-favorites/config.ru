@@ -7,5 +7,6 @@ end
 
 use UserController
 use ListController
+use CharController
 use Rack::MethodOverride
 run ApplicationController

@@ -7,10 +7,9 @@
   <br>
 
   <%@char.each do |char|%>
-    <input type="checkbox" name="char[name]" id="<%=char.id%>" value="<%=char.id%>"><%=char.name%></input>
+  <ol>
+    <li><%=char.name%> <a href='/chars/edit_char'> <input type="button" value="Edit"> </a></li>
+  </ol>
   <%end%>
 
-  <br>
-
-  <a href='/chars/edit_char'> <input type="button" value="Edit"> </a>
 </form>
