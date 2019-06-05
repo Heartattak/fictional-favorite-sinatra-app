@@ -4,13 +4,12 @@
       <p> -------------------------- </p>
       <% @char.each do |char| %>
       <ol>
-        <li>name: <%=char.name%>, origin: <%=char.origin%></li>
+        <li>name: <%=char.name%>, origin: <%=char.origin%> <a href='/chars/<%= @chars.id %>/edit'> <input type="button" value="Edit"> </a></li>
       </ol>
       <% end %>
     <p> --------------------------- </p>
 
       <h1> Don't have a list yet? <a href="create_list"> Make one! </a> </h1>
-      <h2> <a href="/lists/edit_list"> Edit List </a> </h2>
       <h3> Delete List </h3>
       <h4> <a href="/logout"> Log Out </a> </h4>
     </form>
