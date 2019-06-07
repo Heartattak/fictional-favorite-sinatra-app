@@ -4,7 +4,7 @@
       <p> -------------------------- </p>
       <% @char.each do |char| %>
       <ol>
-        <li>name: <%=char.name%>, origin: <%=char.origin%> <a href='/chars/<%= @chars.id %>/edit'> <input type="button" value="Edit"> </a></li>
+        <li>name: <%=char.name%>, origin: <%=char.origin%> <a href='/chars/<%= char.id %>/edit_char'> <input type="button" value="Edit"> </a></li>
       </ol>
       <% end %>
     <p> --------------------------- </p>
