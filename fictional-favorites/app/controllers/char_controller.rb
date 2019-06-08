@@ -5,7 +5,8 @@ class CharController < ApplicationController
     erb :'/chars/edit_char'
   end
 
-  patch '/chars/edit_char' do
+  patch '/chars/:id/edit_char' do
+    binding.pry
   @char = Char.find_by_id(params[:id])
 
     if params[:name] != "" && params[:origin] != "" && current_user
