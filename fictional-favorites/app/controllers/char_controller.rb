@@ -5,11 +5,12 @@ class CharController < ApplicationController
     erb :'/chars/edit_char'
   end
 
-  patch '/chars/:id/' do
+  patch '/chars/:id' do
   @char = Char.find_by_id(params[:id])
 
     if params[:name] != "" && params[:origin] != "" && current_user
-    @char.update(params[:name], params[:origin])
+    @char.update(name: params[:name])
+    @char.update(origin: params[:origin])
     @char.save
     redirect '/lists/list'
   else
