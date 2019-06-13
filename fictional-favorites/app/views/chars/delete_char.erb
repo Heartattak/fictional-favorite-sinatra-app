@@ -1,0 +1,9 @@
+<h1> Delete Character </h1>
+
+<form action="/chars/<%= @char.id %>" method="post">
+<input type="hidden" name="_method" value="delete">
+
+<h2> Are you sure you want to delete? </h2>
+
+    <input type="submit" value="Yes">
+    <a href= '/lists/list'> <input type='button' value ='No'> </a>

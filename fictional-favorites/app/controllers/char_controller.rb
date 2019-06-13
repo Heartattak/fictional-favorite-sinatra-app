@@ -18,6 +18,11 @@ class CharController < ApplicationController
   end
 end
 
+get '/chars/:id/delete_char' do
+  @char = Char.find_by_id(params[:id])
+  erb :'/chars/delete_char'
+end
+
 delete "/chars/:id" do
   @char = Char.find_by_id(params[:id])
   Char.destroy(params[:id]) if @char = current_user.chars
