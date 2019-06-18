@@ -9,7 +9,7 @@ class UserController < ApplicationController
            @user = User.create(params)
            @user.save
            session[:user_id] = @user.id
-            redirect to  '/lists/list'
+            redirect to  '/users/list'
         else
             redirect to '/signup'
          end
@@ -19,7 +19,7 @@ class UserController < ApplicationController
       if !logged_in?
        erb :'/users/login'
       else
-        redirect to '/lists/list'
+        redirect to '/users/list'
       end
     end
 
@@ -27,22 +27,22 @@ class UserController < ApplicationController
       @user = User.find_by(username: params[:username])
        if @user && @user.authenticate(params[:password])
          session[:user_id] = @user.id
-           redirect to '/lists/list'
+           redirect to '/users/list'
            else
               erb :'/users/signup'
        end
     end
 
-    get '/lists/list' do
+    get '/users/list' do
       if @char = current_user.chars
-      erb :'/lists/list'
+      erb :'/users/list'
     else
       redirect to '/'
     end
   end
 
-  get '/lists/create_list' do
-     erb :'/lists/create_list'
+  get '/users/create_list' do
+     erb :'/users/create_list'
    end
 
    post '/create_list' do
@@ -50,14 +50,19 @@ class UserController < ApplicationController
         @char = Char.create(params)
         @char.user = current_user
         @char.save
-      redirect to '/lists/create_list'
+      redirect to '/users/create_list'
    end
  end
 
- get '/lists/edit_list' do
+ get '/users/edit_list' do
    @char = current_user.chars
-    erb :'/lists/edit_list'
+    erb :'/users/edit_list'
   end
+
+  get '/users/delete_list' do
+    @char = current_user.chars
+     erb :'/users/delete_list'
+   end
 
     get '/logout' do
       session.clear
