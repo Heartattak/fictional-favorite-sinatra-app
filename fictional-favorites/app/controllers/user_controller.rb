@@ -17,7 +17,7 @@ class UserController < ApplicationController
 
    get '/login' do
       if !logged_in?
-       erb :'/users/login'
+        erb :'/users/login'
       else
         redirect to '/users/list'
       end
@@ -29,7 +29,7 @@ class UserController < ApplicationController
          session[:user_id] = @user.id
            redirect to '/users/list'
            else
-              erb :'/users/signup'
+            erb :'/users/signup'
        end
     end
 
