@@ -1,5 +1,30 @@
 class CharController < ApplicationController
 
+  get '/users/list' do
+    if @char = current_user.chars
+    erb :'/users/list'
+  else
+    redirect to '/'
+  end
+end
+
+get '/users/create_list' do
+   erb :'/users/create_list'
+ end
+
+ post '/create_list' do
+    if params[:name] != "" && params[:origin] != "" && current_user
+      @char = Char.create(params)
+      @char.user = current_user
+      @char.save
+    redirect to '/users/create_list'
+ end
+end
+
+  get '/users/edit_list' do
+    @char = current_user.chars
+    erb :'/users/edit_list'
+  end
 
   get '/chars/:id/edit_char' do
       @char = Char.find_by_id(params[:id])
@@ -18,6 +43,11 @@ class CharController < ApplicationController
       redirect "/chars/edit_list"
   end
 end
+
+  get '/users/delete_list' do
+    @char = current_user.chars
+      erb :'/users/delete_list'
+  end
 
   get '/chars/:id/delete_char' do
       @char = Char.find_by_id(params[:id])
