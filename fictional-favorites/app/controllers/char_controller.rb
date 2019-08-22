@@ -9,6 +9,7 @@ class CharController < ApplicationController
 end
 
 get '/chars/create_list' do
+  if @user.id == current_user.id
    erb :'/chars/create_list'
  end
 
