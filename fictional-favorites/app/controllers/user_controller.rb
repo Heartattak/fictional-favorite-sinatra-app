@@ -6,13 +6,20 @@ class UserController < ApplicationController
 
    post '/signup' do
      if params[:username] != "" && params[:email] != "" && params[:password] != ""
+
+     @user = User.find_by(:username => params[:username])
+     if @user
+       flash[:message] = "That username is already taken!"
+       redirect to '/signup'
+     else
            @user = User.create(params)
            @user.save
            session[:user_id] = @user.id
             redirect to  '/chars/list'
-        else
-            redirect to '/signup'
          end
+       else
+         redirect to '/signup'
+       end
    end
 
    get '/login' do

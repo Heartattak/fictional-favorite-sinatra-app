@@ -1,5 +1,7 @@
 require './config/environment'
 require 'sinatra'
+require 'sinatra/base'
+require 'sinatra/flash'
 
 class ApplicationController < Sinatra::Base
 
@@ -8,6 +10,7 @@ class ApplicationController < Sinatra::Base
     enable :sessions
     set :session_secret, "NMH"
     set :views, 'app/views'
+    register Sinatra::Flash
   end
 
   get "/" do
