@@ -3,7 +3,7 @@
     <form>
       <h1> Your list: </h1>
       <p> -------------------------- </p>
-      <% @char.each do |char| %>
+      <% @chars.each do |char| %>
       <ol>
         <li>name: <%=char.name%>, origin: <%=char.origin%> <a href='/chars/<%= char.id %>/edit_char'> <input type="button" value="Edit"> </a>
         <a href='/chars/<%= char.id %>/delete_char'> <input type="button" value="Delete"> </a>

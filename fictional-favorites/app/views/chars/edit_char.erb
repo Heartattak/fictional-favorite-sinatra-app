@@ -2,8 +2,8 @@
 <form action="/chars/<%= @char.id %>" method="POST">
    <input type="hidden" name="_method" value="patch">
   <ul>
-    <li><label> Character Name:</label> <input type="text" name="name" id="char_name" placeholder="<%= @char.name %>"></li>
-    <li><label>Fictional Work Of Origin:</label> <input type="text" name="origin" id="char_origin" placeholder="<%= @char.origin %>"></li>
+    <li><label> Character Name:</label> <input type="text" name="name" id="char_name" value="<%= @char.name %>"></li>
+    <li><label>Fictional Work Of Origin:</label> <input type="text" name="origin" id="char_origin" value="<%= @char.origin %>"></li>
   </ul>
 
   <input type="submit" value="Update Character">
